@@ -452,9 +452,8 @@
 
         <ImageView
             android:id="@+id/div"
-            android:layout_width="20dp"
-            android:layout_height="10dp"
-            android:rotation="-90"
+            android:layout_width="15dp"
+            android:layout_height="12dp"
             android:src="@drawable/div"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/text_2"
