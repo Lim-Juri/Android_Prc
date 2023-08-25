@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="horizontal_margin">16dp</dimen>
+    <dimen name="vertical_margin">16dp</dimen>
+    <dimen name="text_size1">16dp</dimen>
+    <dimen name="text_size2">13dp</dimen>
+    <dimen name="text_size3">20dp</dimen>
+    <dimen name="text_size4">18dp</dimen>
+    <dimen name="padding">4dp</dimen>
+    <dimen name="icon_size">100dp</dimen>
+    <dimen name="icon_padding">8dp</dimen>
+
+</resources>
+
