@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Ui_Project</string>
+    <string name="manner"><u>매너온도</u></string>
 </resources>

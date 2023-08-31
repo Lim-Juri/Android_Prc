@@ -1,5 +1,9 @@
 package com.example.ui_project
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class MyItem(
     val aIcon: Int,
     val aName: String,
@@ -8,6 +12,6 @@ data class MyItem(
     val aPrice: Int,
     val aAddress: String,
     val aLike: Int,
-    val aChat: Int
-) {
-}
+    val aChat: Int,
+    var isLike: Boolean
+) : Parcelable
