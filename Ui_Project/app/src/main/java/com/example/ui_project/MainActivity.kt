@@ -179,18 +179,18 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        adapter.itemLongClick = object : ItemAdapter.ItemLongClick {
-            override fun onLongClick(view: View, position:Int){
+        adapter.itemLongClick = object : MyAdapter.ItemLongClick {
+            override fun onLongClick(view: View, position: Int) {
                 val delete = AlertDialog.Builder(this@MainActivity)
                 delete.setIcon(R.drawable.chat_image)
                 delete.setTitle("상품 삭제")
                 delete.setMessage("상품을 정말로 삭제하시겠습니까?")
-                delete.setPositiveButton("확인") {
-                    dialog, _ -> dataList.removeAt(position)
+                delete.setPositiveButton("확인") { dialog, _ ->
+                    dataList.removeAt(position)
                     adapter.notifyItemRemoved(position)
                 }
-                delete.setNegativeButton("취소"){
-                    dialog, _-> dialog.dismiss()
+                delete.setNegativeButton("취소") { dialog, _ ->
+                    dialog.dismiss()
                 }
                 delete.show()
             }
@@ -223,25 +223,30 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        binding.ftUpButton.setOnClickListener{
+        binding.ftUpButton.setOnClickListener {
             binding.recyclerview.smoothScrollToPosition(0)
         }
 
-        activityResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-            if (it.resultCode == RESULT_OK) {
-                val itemIndex = it.data?.getIntExtra("itemIndex",0) as Int
-                val isLike = it.data?.getBooleanExtra("isLike",false) as Boolean
+        activityResultLauncher =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+                if (it.resultCode == RESULT_OK) {
+                    val itemIndex = it.data?.getIntExtra("item_index", 0) as Int
+                    val isLike = it.data?.getBooleanExtra("isLike", false) as Boolean
 
-                if(isLike) {
-                    dataList[itemIndex].isLike = true
-                    dataList[itemIndex]. += 1
-                } else {
-                    dataList[itemIndex].isLike = false
-                    dataList[itemIndex]. -= 1
+                    if (isLike) {
+                        dataList[itemIndex].isLike = true
+                        dataList[itemIndex].aLike += 1
+                    } else {
+                        if (dataList[itemIndex].isLike) {
+                            dataList[itemIndex].isLike = false
+                            dataList[itemIndex].aLike -= 1
+                        }
+                    }
+
+                    //adapter 갱신해주기! 꼭 필요!
+                    adapter.notifyItemChanged(itemIndex)
                 }
-                adapter.notifyItemChanged(itemIndex)
             }
-        }
 
         binding.ring.setOnClickListener {
             notification()

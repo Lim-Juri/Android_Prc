@@ -35,7 +35,7 @@
         app:layout_constraintTop_toTopOf="@+id/card">
 
         <TextView
-            android:id="@+id/textItem1"
+            android:id="@+id/item_tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -48,24 +48,24 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textItem2"
+            android:id="@+id/item_tv_address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:text="서울 서대문구 창천동"
             android:textSize="@dimen/text_size2"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textItem1" />
+            app:layout_constraintTop_toBottomOf="@+id/item_tv_name" />
 
         <TextView
-            android:id="@+id/textItem4"
+            android:id="@+id/item_tv_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:text="1,000원"
             android:textSize="@dimen/text_size3"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textItem2" />
+            app:layout_constraintTop_toBottomOf="@+id/item_tv_address" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -85,7 +85,7 @@
             android:src="@drawable/chat_image" />
 
         <TextView
-            android:id="@+id/textItem7"
+            android:id="@+id/item_tv_chat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
@@ -99,7 +99,7 @@
             android:src="@drawable/heart" />
 
         <TextView
-            android:id="@+id/textItem6"
+            android:id="@+id/item_tv_heart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="15dp"

@@ -15,6 +15,7 @@ import androidx.core.app.NotificationCompat
 import androidx.core.content.res.ResourcesCompat
 import com.example.ui_project.databinding.ActivityDetailBinding
 import com.example.ui_project.databinding.ItemBinding
+import com.google.android.material.snackbar.Snackbar
 import java.text.DecimalFormat
 
 class DetailActivity : BaseActivity() {
@@ -24,7 +25,7 @@ class DetailActivity : BaseActivity() {
     private var isLike = false
 
     private val item: MyItem? by lazy {
-        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.TIRAMISU) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             //객체 받아오기
             intent.getParcelableExtra("item_index", MyItem::class.java)
         } else {
@@ -32,16 +33,19 @@ class DetailActivity : BaseActivity() {
         }
     }
 
-    private val itemPosition:Int by lazy {
-        intent.getIntExtra("item_index",0)
+    private val itemPosition: Int by lazy {
+        intent.getIntExtra("item_index", 0)
     }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        Log.d("hi","itemPosition = $itemPosition")
+        showtoast("상세페이지로 이동합니다.")
+
+        Log.d("hi", "itemPosition = $itemPosition")
 
         binding.mainImage.setImageDrawable(item?.let {
             ResourcesCompat.getDrawable(
@@ -59,13 +63,34 @@ class DetailActivity : BaseActivity() {
 
         isLike = item?.isLike == true
 
+        binding.dtHeart.setImageResource(if (isLike) {R.drawable.redheart} else {R.drawable.heart})
 
-
-        showtoast("상세페이지로 이동합니다.")
+        binding.dtHeart.setOnClickListener {
+            if (!isLike) {
+                binding.dtHeart.setImageResource(R.drawable.redheart)
+                Snackbar.make(binding.constraint, "관심 목록에 추가 되었습니다.", Snackbar.LENGTH_SHORT).show()
+                isLike = true
+            } else {
+                binding.dtHeart.setImageResource(R.drawable.heart)
+                isLike = false
+            }
+        }
 
         binding.back.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+            exit()
         }
+    }
+
+    override fun onBackPressed() {
+        exit()
+    }
+
+    fun exit() {
+        val intent = Intent(this, MainActivity::class.java).apply {
+            putExtra("item_index", itemPosition)
+            putExtra("isLike", isLike)
+        }
+        setResult(RESULT_OK, intent)
+        finish()
     }
 }

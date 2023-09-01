@@ -9,12 +9,21 @@ import java.text.DecimalFormat
 
 
 class MyAdapter(val items: MutableList<MyItem>) : RecyclerView.Adapter<MyAdapter.Holder>() {
+
+    //interface = 함수를 미리 정의해 놓음
+    // 실제 onClick은 MainActivity에 있음
     interface ItemClick {
         fun onClick(view: View, position: Int)
     }
 
+    interface ItemLongClick {
+        fun onLongClick(view: View, position: Int)
+    }
+
     var itemClick: ItemClick? = null
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyAdapter.Holder {
+    var itemLongClick: ItemLongClick? = null
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val binding =
             ItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return Holder(binding)
@@ -24,15 +33,23 @@ class MyAdapter(val items: MutableList<MyItem>) : RecyclerView.Adapter<MyAdapter
         holder.itemView.setOnClickListener {
             itemClick?.onClick(it, position)
         }
+
+        holder.itemView.setOnLongClickListener() OnLongClickListener@{
+            itemLongClick?.onLongClick(it, position)
+            return@OnLongClickListener true
+        }
+
         holder.iconImageView.setImageResource(items[position].aIcon)
         holder.name.text = items[position].aName
-        holder.note.text = items[position].aNote
-        holder.sale.text = items[position].aSale
         holder.price.text = makeWon(items[position].aPrice)
         holder.address.text = items[position].aAddress
-        holder.like.text = items[position].aLike
-        holder.chat.text = items[position].aChat
+        holder.like.text = items[position].aLike.toString()
+        holder.chat.text = items[position].aChat.toString()
 
+        if (items[position].isLike)
+            holder.heart.setImageResource(R.drawable.redheart)
+        else
+            holder.heart.setImageResource(R.drawable.heart)
     }
 
     override fun getItemId(position: Int): Long {
@@ -43,21 +60,20 @@ class MyAdapter(val items: MutableList<MyItem>) : RecyclerView.Adapter<MyAdapter
         return items.size
     }
 
-    fun makeWon(aPrice:Int) :String {
-        val text_won = DecimalFormat("#,###원")
-        var str_change = text_won.format(aPrice)
-        return str_change.toString()
+    fun makeWon(aPrice: Int): String {
+        val won = DecimalFormat("#,###원")
+        var change = won.format(aPrice)
+        return change.toString()
     }
 
     inner class Holder(val binding: ItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         val iconImageView = binding.icon
-        val name = binding.textItem1
-        val note = binding.textItem2
-        val sale = binding.textItem3
-        val price = binding.textItem4
-        val address = binding.textItem5
-        val like = binding.textItem6
-        val chat = binding.textItem7
+        val name = binding.itemTvName
+        val price = binding.itemTvPrice
+        val address = binding.itemTvAddress
+        val like = binding.itemTvHeart
+        val heart = binding.heart
+        val chat = binding.itemTvChat
     }
 }

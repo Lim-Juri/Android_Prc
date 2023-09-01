@@ -11,30 +11,30 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="15dp"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/my"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="내배캠동"
-            android:textStyle="bold"
-            android:textSize="@dimen/text_size4"
             android:layout_marginStart="10dp"
+            android:text="내배캠동"
+            android:textSize="@dimen/text_size4"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:layout_width="18dp"
             android:layout_height="20dp"
+            android:layout_marginStart="5dp"
             android:src="@drawable/stroke"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/my"
-            android:layout_marginStart="5dp"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
 
         <ImageView
@@ -42,9 +42,9 @@
             android:layout_width="30dp"
             android:layout_height="28dp"
             android:src="@drawable/ring"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -53,8 +53,8 @@
         android:id="@+id/recyclerview"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_top_msg" />
 
@@ -65,10 +65,10 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:src="@drawable/upbutton"
-        app:rippleColor="#4FB1FF"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:rippleColor="#4FB1FF">
 
     </com.google.android.material.floatingactionbutton.FloatingActionButton>
 

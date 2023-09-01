@@ -184,10 +184,10 @@
             android:layout_height="wrap_content"
             android:background="@drawable/buttonbg"
             android:paddingHorizontal="18dp"
-            android:textSize="16sp"
             android:paddingVertical="5dp"
             android:text="채팅하기"
             android:textColor="@color/white"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

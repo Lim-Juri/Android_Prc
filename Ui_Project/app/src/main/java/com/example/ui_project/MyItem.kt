@@ -11,7 +11,7 @@ data class MyItem(
     val aSale: String,
     val aPrice: Int,
     val aAddress: String,
-    val aLike: Int,
-    val aChat: Int,
+    var aLike: Int,
+    var aChat: Int,
     var isLike: Boolean
 ) : Parcelable
