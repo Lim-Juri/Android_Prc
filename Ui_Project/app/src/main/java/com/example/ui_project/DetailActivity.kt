@@ -66,10 +66,12 @@ class DetailActivity : BaseActivity() {
         binding.dtHeart.setImageResource(if (isLike) {R.drawable.redheart} else {R.drawable.heart})
 
         binding.dtHeart.setOnClickListener {
+            //좋아요 버튼을 한 번 눌렀을 때,
             if (!isLike) {
                 binding.dtHeart.setImageResource(R.drawable.redheart)
                 Snackbar.make(binding.constraint, "관심 목록에 추가 되었습니다.", Snackbar.LENGTH_SHORT).show()
                 isLike = true
+                //좋아요 버튼을 다시 한 번 더 눌렀을 때,
             } else {
                 binding.dtHeart.setImageResource(R.drawable.heart)
                 isLike = false

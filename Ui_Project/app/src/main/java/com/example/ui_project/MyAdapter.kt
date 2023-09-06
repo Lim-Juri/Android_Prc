@@ -12,6 +12,7 @@ class MyAdapter(val items: MutableList<MyItem>) : RecyclerView.Adapter<MyAdapter
 
     //interface = 함수를 미리 정의해 놓음
     // 실제 onClick은 MainActivity에 있음
+    // 어뎁터와 메인엑티비티를 연결하는 통로 - interface
     interface ItemClick {
         fun onClick(view: View, position: Int)
     }
