@@ -1,5 +1,6 @@
 package com.example.recyclerview
 
+import android.graphics.drawable.Icon
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +14,10 @@ class MyAdapter(val Items: MutableList<IconItem>) : RecyclerView.Adapter<ViewHol
     companion object {
         private const val VIEW_TYPE_TITLE = 100
         private const val VIEW_TYPE_ICON = 200
+    }
+
+    interface StickyHeader {
+        val stickyId: Any
     }
 
     interface ItemClick {
@@ -75,11 +80,14 @@ class MyAdapter(val Items: MutableList<IconItem>) : RecyclerView.Adapter<ViewHol
         }
     }
 
-    inner class TitlewViewHolder(binding: ItemTitleBinding) : ViewHolder(binding.root) {
+    inner class TitlewViewHolder(binding: ItemTitleBinding) : RecyclerView.ViewHolder(binding.root),StickyHeader {
         val title = binding.tvAgetitle
+
+        override val stickyId: Int
+            get() = (Items[adapterPosition] as IconItem.MyTitle).age
     }
 
-    inner class IconViewHolder(binding: ItemRecyclerviewBinding) : ViewHolder(binding.root) {
+    inner class IconViewHolder(binding: ItemRecyclerviewBinding) : RecyclerView.ViewHolder(binding.root) {
         val iconImageView = binding.imageItem
         val name = binding.textItemName
         val age = binding.textItemAge
