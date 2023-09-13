@@ -2,7 +2,7 @@ package com.example.preferences
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.preferences.databinding.ActivityRoomBinding
+import com.android.roomexample.databinding.ActivityRoomBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -25,7 +25,7 @@ class RoomActivity : AppCompatActivity() {
                 for ((id, name) in it) {
                     append(id)
                     append("-")
-                    append("name")
+                    append(name)
                     append("\n")
                 }
             }.toString()
@@ -47,7 +47,7 @@ class RoomActivity : AppCompatActivity() {
 
         binding.querySt.setOnClickListener {
             val name = binding.editStName.text.toString()
-            CoroutineScope(Dispatchers.IO).launch {
+            CoroutineScope(Dispatchers.IO).launch{
 
                 val results = myDao.getStudentByName(name)
 
