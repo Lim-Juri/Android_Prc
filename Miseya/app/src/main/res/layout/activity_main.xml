@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FDFFEB"
+    tools:context=".MainActivity">
+
+    <com.skydoves.powerspinner.PowerSpinnerView
+        android:id="@+id/spinnerView_dosi"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:background="#E1ED64"
+        android:foreground="?attr/selectableItemBackground"
+        android:gravity="center"
+        android:hint="도시선택"
+        android:padding="10dp"
+        style="@style/PowerSpinnerStyle"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:textColor="@color/black"
+        android:textColorHint="#1F201E"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toStartOf="@id/spinnerView_go"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:spinner_arrow_gravity="end"
+        app:spinner_arrow_padding="8dp"
+        app:spinner_arrow_tint="#1E1E14"
+        app:spinner_divider_color="@color/white"
+        app:spinner_divider_show="true"
+        app:spinner_divider_size="0.4dp"
+        app:spinner_item_array="@array/Dosi"
+        app:spinner_popup_animation="dropdown"
+        app:spinner_popup_background="#C1FFEC"
+        app:spinner_popup_elevation="14dp" />
+
+    <com.skydoves.powerspinner.PowerSpinnerView
+        android:id="@+id/spinnerView_go"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:background="#F6FF96"
+        android:foreground="?attr/selectableItemBackground"
+        android:gravity="center"
+        android:hint="지역선택"
+        android:padding="10dp"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:textColor="@color/black"
+        android:textColorHint="#121010"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/spinnerView_dosi"
+        app:layout_constraintTop_toTopOf="parent"
+        app:spinner_arrow_gravity="end"
+        app:spinner_arrow_padding="8dp"
+        app:spinner_arrow_tint="#1E1E14"
+        style="@style/PowerSpinnerStyle"
+        app:spinner_divider_color="@color/white"
+        app:spinner_divider_show="true"
+        app:spinner_divider_size="1dp"
+        app:spinner_item_array="@array/Dosi"
+        app:spinner_popup_animation="normal"
+        app:spinner_popup_background="#B3B3B3"
+        app:spinner_popup_elevation="14dp" />
+
+    <TextView
+        android:id="@+id/tv_cityname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="도시를 선택해 주세요."
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/iv_face"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spinnerView_dosi" />
+
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2023-09-14"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toTopOf="@id/iv_face"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_cityname" />
+
+    <ImageView
+        android:id="@+id/iv_face"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/image"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="m"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_face" />
+
+    <TextView
+        android:id="@+id/tv_grade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="좋음"
+        android:textColor="#0B6AB5"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_value" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,7 +18,7 @@ object NetWorkClient {
         else
             interceptor.level = HttpLoggingInterceptor.Level.NONE
 
-        return  OkHttpClient.Builder()
+        return OkHttpClient.Builder()
             .connectTimeout(20, TimeUnit.SECONDS)
             .readTimeout(20, TimeUnit.SECONDS)
             .writeTimeout(20, TimeUnit.SECONDS)
