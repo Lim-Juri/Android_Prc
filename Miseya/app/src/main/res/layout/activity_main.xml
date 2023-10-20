@@ -10,6 +10,7 @@
 
     <com.skydoves.powerspinner.PowerSpinnerView
         android:id="@+id/spinnerView_dosi"
+        style="@style/PowerSpinnerStyle"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:background="#E1ED64"
@@ -17,7 +18,6 @@
         android:gravity="center"
         android:hint="도시선택"
         android:padding="10dp"
-        style="@style/PowerSpinnerStyle"
         android:scrollbarAlwaysDrawVerticalTrack="true"
         android:textColor="@color/black"
         android:textColorHint="#1F201E"
@@ -38,6 +38,7 @@
 
     <com.skydoves.powerspinner.PowerSpinnerView
         android:id="@+id/spinnerView_go"
+        style="@style/PowerSpinnerStyle"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:background="#F6FF96"
@@ -55,7 +56,6 @@
         app:spinner_arrow_gravity="end"
         app:spinner_arrow_padding="8dp"
         app:spinner_arrow_tint="#1E1E14"
-        style="@style/PowerSpinnerStyle"
         app:spinner_divider_color="@color/white"
         app:spinner_divider_show="true"
         app:spinner_divider_size="1dp"
